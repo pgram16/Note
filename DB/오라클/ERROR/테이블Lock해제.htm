@@ -12,7 +12,7 @@ B, dba_objects C<BR>WHERE A.sid = B.sid and B.id1 = C.object_id<BR>AND B.type =
 'TM' and C.object_name='TABLE_NAME';</div>
 <div>&nbsp;</div>
 <div>&nbsp;</div>
-<div>¶Ç´Â</div>
+<div>ë˜ëŠ”</div>
 <div>&nbsp;</div>
 <div>&nbsp;</div>
 <div>&nbsp;</div>
@@ -20,18 +20,18 @@ B, dba_objects C<BR>WHERE A.sid = B.sid and B.id1 = C.object_id<BR>AND B.type =
 S.SID,<BR>&nbsp;&nbsp;&nbsp; S.SERIAL#<BR>FROM<BR>&nbsp;&nbsp;&nbsp; 
 (<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SELECT 
 SID<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FROM 
-V$LOCK<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WHERE ID1 IN (SELECT 
+V$LOCK<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WHERE ID1 IN (SELECT
 OBJECT_ID FROM DBA_OBJECTS WHERE OBJECT_NAME = 
 'IP_NMCBOARD_T')<BR>&nbsp;&nbsp;&nbsp; ) X<BR>&nbsp;&nbsp;&nbsp; JOIN V$SESSION 
 S ON X.SID = S.SID;</div>
 <div>&nbsp;</div>
 <div>&nbsp;</div>
 <div>&nbsp;</div>
-<div>Lock¸¦ ÇÏ°í ÀÖ´Â ´ë»óÀÇ µ¥ÀÌÅÍ°¡ ³ª¿À¸é</div>
+<div>Lockë¥¼ í•˜ê³  ìˆëŠ” ëŒ€ìƒì˜ ë°ì´í„°ê°€ ë‚˜ì˜¤ë©´</div>
 <div>&nbsp;</div>
 <div><BR>ALTER system kill session '2391, 18325';</div>
 <div>&nbsp;</div>
-<div><BR>¿Í °°Àº Äõ¸®¸¦ ³¯·Á¼­ ¿øÀÎÀÌ µÇ´Â ¼¼¼ÇÀ» ³¯·Á¹ö¸®¸é µÈ´Ù.</div>
+<div><BR>ì™€ ê°™ì€ ì¿¼ë¦¬ë¥¼ ë‚ ë ¤ì„œ ì›ì¸ì´ ë˜ëŠ” ì„¸ì…˜ì„ ë‚ ë ¤ë²„ë¦¬ë©´ ëœë‹¤.</div>
 <div>&nbsp;</div>
 <div><BR>&nbsp;</div>
 </BODY></HTML>
