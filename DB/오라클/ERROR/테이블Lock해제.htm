@@ -1,0 +1,37 @@
+<HTML><HEAD><META http-equiv=Content-Type content="text/html; charset=ksc5601">
+<style type="text/css">
+<!--
+BODY,TD,SELECT,input,DIV,form,TEXTAREA,option {font-size:9pt; font-family:verdana;color:0}
+A:link {color:#4077a0;text-decoration:none;font-weight: bold}
+A:visited {color:#4077a0;text-decoration:none;font-weight: bold}
+A:hover{color:#990000;text-decoration:none;font-weight: bold}
+--></style></HEAD>
+<BODY>
+<div>SELECT A.sid , A.serial#<BR>FROM v$session A , v$lock 
+B, dba_objects C<BR>WHERE A.sid = B.sid and B.id1 = C.object_id<BR>AND B.type = 
+'TM' and C.object_name='TABLE_NAME';</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>또는</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>SELECT<BR>&nbsp;&nbsp;&nbsp; 
+S.SID,<BR>&nbsp;&nbsp;&nbsp; S.SERIAL#<BR>FROM<BR>&nbsp;&nbsp;&nbsp; 
+(<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SELECT 
+SID<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FROM 
+V$LOCK<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WHERE ID1 IN (SELECT 
+OBJECT_ID FROM DBA_OBJECTS WHERE OBJECT_NAME = 
+'IP_NMCBOARD_T')<BR>&nbsp;&nbsp;&nbsp; ) X<BR>&nbsp;&nbsp;&nbsp; JOIN V$SESSION 
+S ON X.SID = S.SID;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>Lock를 하고 있는 대상의 데이터가 나오면</div>
+<div>&nbsp;</div>
+<div><BR>ALTER system kill session '2391, 18325';</div>
+<div>&nbsp;</div>
+<div><BR>와 같은 쿼리를 날려서 원인이 되는 세션을 날려버리면 된다.</div>
+<div>&nbsp;</div>
+<div><BR>&nbsp;</div>
+</BODY></HTML>
